@@ -13,17 +13,15 @@
 //     document.getElementById("colorvalue").innerHTML = r + " " + g + " " + b;
 // }, 1500);
 
-// function changeBackground(obj) {
-//   document.getElementById("temp").style.color = obj.value;
+// function randomColorChange(){
+//   return '#'+(Math.floor(Math.random()*16777216)&0xFFFFFF).toString(16);
 // }
 function getRandomColor() {
   color = "hsl(" + Math.random() * 360 + ", 100%, 80%)";
   return color;
 }
-function randomColorChange(){
-  return '#'+(Math.floor(Math.random()*16777216)&0xFFFFFF).toString(16);
-}
-$('#temp').on('blur keyup', function() {
+
+$('#temp-celsius').on('blur keyup', function() {
   $('body').css('background-color', getRandomColor());
 });
 
