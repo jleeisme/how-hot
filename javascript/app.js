@@ -16,12 +16,15 @@
 // function changeBackground(obj) {
 //   document.getElementById("temp").style.color = obj.value;
 // }
-
+function getRandomColor() {
+  color = "hsl(" + Math.random() * 360 + ", 100%, 80%)";
+  return color;
+}
 function randomColorChange(){
   return '#'+(Math.floor(Math.random()*16777216)&0xFFFFFF).toString(16);
 }
 $('#temp').on('blur keyup', function() {
-  $('body').css('background-color', randomColorChange());
+  $('body').css('background-color', getRandomColor());
 });
 
 // $("#temp").on('blur keyup', function(e) {
