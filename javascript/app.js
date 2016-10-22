@@ -25,31 +25,15 @@ $('#temp-celsius').on('blur keyup', function() {
   $('body').css('background-color', getRandomColor());
 });
 
-// $("#temp").on('blur keyup', function(e) {
-//   var randomColorChange = '#'+(Math.random()*0xFFFFFF<<0).toString(16);
-//     $('body').css('background-color', randomColorChange);
-// });
-
-// function convertTemp(degree) {
-//   var x;
-//   if (degree == "C") {
-//     x = document.getElementById("c").value * 9 / 5 + 32;
-//     document.getElementById("f").value = Math.round(x);
-//   } else {
-//     x = (document.getElementById("f").value -32) * 5 / 9;
-//     document.getElementById("c").value = Math.round(x);
-//   }
-// }
-
 var celsius = document.getElementById('temp-celsius'),
-    fahrenheit = document.getElementById('temp-fahrenheit');
+  fahrenheit = document.getElementById('temp-fahrenheit');
     
 celsius.onkeyup = function() {
-    fahrenheit.value = Math.round(this.value * 9/5 + 32); 
+  fahrenheit.value = Math.round(this.value * 9/5 + 32); 
 }
     
 fahrenheit.onkeyup = function() {
-    celsius.value = Math.round((this.value - 32) * 5/9);
+  celsius.value = Math.round((this.value - 32) * 5/9);
 }
 
 // var c = document.getElementById('temp-celsius').onkeyup = function(){
@@ -70,11 +54,3 @@ fahrenheit.onkeyup = function() {
 //  }
 // }
 
-// $(function() {
-//     $("#start").on('keyup', function() {
-//       $("#finish").val(celsiusToFarenheit($(this).val()));
-//     });
-//     $("#finish").on('keyup', function() {
-//       $("#start").val(fahrenheitToCelsius($(this).val()));
-//     });
-//   });
