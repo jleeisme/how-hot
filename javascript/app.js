@@ -14,10 +14,14 @@ var celsius = document.getElementById('temp-celsius'),
     // noTemp = noCel + "," + noFahr;
 
 celsius.onkeyup = function() {
-  if(celsius.value != "" && (celsius.value !=('[A-Za-z]$'))) {
+  if(celsius.value != "") {
     fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
   }
   else {
+    celsius.value = "";
+    fahrenheit.value = "";
+  }
+  if(isNaN(celsius.value)){
     celsius.value = "";
     fahrenheit.value = "";
   }
@@ -30,6 +34,10 @@ fahrenheit.onkeyup = function() {
   else { 
     fahrenheit.value = "";
     celsius.value = "";
+  }
+  if(isNaN(fahrenheit.value)){
+    celsius.value = "";
+    fahrenheit.value = "";
   }
 }
 
