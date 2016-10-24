@@ -2,12 +2,55 @@ function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 }
 
+// red
 function getRandomColor() {
   for (var i = 0; i < 5; i++) {
-    var hsl = 'hsl(' + randomVal(10, 11) + ', ' + randomVal(90, 95) + '%,  ' + randomVal(50, 80) + '%)';
+    var hsl = 'hsl(' + randomVal(10, 11) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
   return hsl;
 }
+
+// orange
+function getRandomColor() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(20, 21) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+  }
+  return hsl;
+}
+
+// yellow
+function getRandomColor() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(50, 51) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+  }
+  return hsl;
+}
+
+// green
+function getRandomColor() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(150, 151) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+  }
+  return hsl;
+}
+
+// cyan
+function getRandomColor() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(190, 191) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+  }
+  return hsl;
+}
+
+// blue
+function getRandomColor() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(235, 236) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+  }
+  return hsl;
+}
+
+
 
 // function getRandomColor() {
 //   color = "hsl(" + Math.random() * 360 + ", 80%, 85%)";
@@ -51,37 +94,4 @@ fahrenheit.onkeyup = function() {
     noTemp();
   }
 }
-
-
-// color stuff
-// var elColors = document.getElementById('colors');
-// var genBtn = document.getElementById('generate_btn');
-// var colors = '';
-
-// /* generates a value while allowing the customization of the minimum and maximum values*/
-// function randomVal(min, max) {
-//   return Math.floor(Math.random() * (max - min) + 1) + min;
-// }
-
-//  TO CUSTOMIZE 
-
-// In the generate() function below, change the numbers in randomVal(); min to max
-
-// EX to only generate colors from green to blue, change the first set to (120, 240)
-
-
-// function generate() {
-//   for (var i = 0; i < 5; i++) {
-//     var hsl = 'hsl(' + randomVal(0, 360) + ', ' + randomVal(30, 95) + '%,  ' + randomVal(30, 80) + '%)';
-//     colors += '<div class="\random-container\"><div class="\circle\"  style=\"border-bottom-color: ' + hsl + '\"></div> <p>' + hsl + '</p></div>';
-//     elColors.innerHTML = colors;
-//   }
-
-//   colors = '';
-
-// }
-
-// generate();
-
-// genBtn.addEventListener('click', generate);
 
