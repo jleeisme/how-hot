@@ -15,34 +15,61 @@
 
 
 function getRandomColor() {
-  color = "hsl(" + Math.random() * 360 + ", 100%, 80%)";
+  color = "hsl(" + Math.random() * 360 + ", 100%, 85%)";
   return color;
 }
 
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   $('body').css('background-color', getRandomColor());
+  // if($('#temp-celsius').val() = ""){
+  //   $('#temp-fahrenheit').val() = "";
+  // }
+  // if($('#temp-fahrenheit').val() = ""){
+  //   $('#temp-celsius').val() = "";
+  // }
 });
 
 var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
+    // noCel = celsius.value = "",
+    // noFahr = fahrenheit.value = "",
+    // noTemp = noCel, noFahr;
 
 // function noTemp() {
-//   if(celsius.value = ""){
-//     fahrenheit.value = "";
+//   var celVal = celsius.value,
+//       fahrVal = fahrenheit.value;
+
+//   if(celVal = ""){
+//     fahrVal = "";
+//   } else {
+//     fahrVal = fahrenheit.value;
+//     }
 //   }
-//   if(fahrenheit.value = ""){
-//     celsius.value = "";
-//   }
+//   if(fahrVal = ""){
+//     celVal= "";
+//   } else {
+//     celVal = celsius.value;
 // };
 
-// noTemp();
-
 celsius.onkeyup = function() {
-  fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
+  if(celsius.value != ""){
+    fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
+  }
+  else{
+    celsius.value = "";
+    fahrenheit.value = "";
+  }
 }
     
 fahrenheit.onkeyup = function() {
-  celsius.value = Math.round((this.value - 32) * 5 / 9);
+  if(fahrenheit.value != ""){
+    celsius.value = Math.round((this.value - 32) * 5 / 9);
+  }
+  else{ 
+    fahrenheit.value = "";
+    celsius.value = "";
+
+  }
 }
 
 // var c = document.getElementById('temp-celsius').onkeyup = function(){
