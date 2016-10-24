@@ -9,35 +9,35 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
 
 var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
-    // noCel = celsius.value = "",
-    // noFahr = fahrenheit.value = "",
-    // noTemp = noCel + "," + noFahr;
+
+var noTemp = function(){
+  noCel = celsius.value = "";
+  noFahr = fahrenheit.value = "";
+}
 
 celsius.onkeyup = function() {
   if(celsius.value != "") {
     fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
   }
   else {
-    celsius.value = "";
-    fahrenheit.value = "";
+    noTemp();
   }
+
   if(isNaN(celsius.value)){
-    celsius.value = "";
-    fahrenheit.value = "";
+    noTemp();
   }
 }
     
 fahrenheit.onkeyup = function() {
-  if(fahrenheit.value != "" && (fahrenheit.value !=('[A-Za-z]$'))) {
+  if(fahrenheit.value != "") {
     celsius.value = Math.round((this.value - 32) * 5 / 9);
   }
   else { 
-    fahrenheit.value = "";
-    celsius.value = "";
+    noTemp();
   }
+
   if(isNaN(fahrenheit.value)){
-    celsius.value = "";
-    fahrenheit.value = "";
+    noTemp();
   }
 }
 
