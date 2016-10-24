@@ -4,33 +4,32 @@ function getRandomColor() {
 }
 
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  $('body').css('background-color', getRandomColor());g
+  $('body').css('background-color', getRandomColor());
 });
 
 var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
     // noCel = celsius.value = "",
     // noFahr = fahrenheit.value = "",
-    // noTemp = noCel, noFahr;
+    // noTemp = noCel + "," + noFahr;
 
 celsius.onkeyup = function() {
-  if(celsius.value != ""){
+  if(celsius.value != "" && (celsius.value !=('[A-Za-z]$'))) {
     fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
   }
-  else{
+  else {
     celsius.value = "";
     fahrenheit.value = "";
   }
 }
     
 fahrenheit.onkeyup = function() {
-  if(fahrenheit.value != ""){
+  if(fahrenheit.value != "" && (fahrenheit.value !=('[A-Za-z]$'))) {
     celsius.value = Math.round((this.value - 32) * 5 / 9);
   }
-  else{ 
+  else { 
     fahrenheit.value = "";
     celsius.value = "";
-
   }
 }
 
