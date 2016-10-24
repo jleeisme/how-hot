@@ -1,3 +1,4 @@
+// allows for randomizing in the colour functions
 function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 }
@@ -50,25 +51,22 @@ function getRandomColor() {
   return hsl;
 }
 
-
-
-// function getRandomColor() {
-//   color = "hsl(" + Math.random() * 360 + ", 80%, 85%)";
-//   return color;
-// }
-
+// jquery to change the colour of the background on keyups
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   $('body').css('background-color', getRandomColor());
 });
 
+// assign the two forms to a variable
 var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
 
+// function for blank, or to make blank, forms
 var noTemp = function(){
   noCel = celsius.value = "";
   noFahr = fahrenheit.value = "";
 }
 
+// calculation to make celsius to fahrenheit as well as clearing the forms when blank
 celsius.onkeyup = function() {
   if(celsius.value != "") {
     fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
@@ -81,7 +79,8 @@ celsius.onkeyup = function() {
     noTemp();
   }
 }
-    
+
+// calculation to make fahrenheit to celsius as well as clearing the forms when blank
 fahrenheit.onkeyup = function() {
   if(fahrenheit.value != "") {
     celsius.value = Math.round((this.value - 32) * 5 / 9);
@@ -95,3 +94,9 @@ fahrenheit.onkeyup = function() {
   }
 }
 
+// *********** old colour randomizer **********************
+
+// function getRandomColor() {
+//   color = "hsl(" + Math.random() * 360 + ", 80%, 85%)";
+//   return color;
+// }
