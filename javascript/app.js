@@ -4,7 +4,7 @@ function randomVal(min, max) {
 }
 
 // red
-function getRandomColor() {
+function getRandomColour() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(10, 11) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -12,7 +12,7 @@ function getRandomColor() {
 }
 
 // orange
-function getRandomColor() {
+function getRandomColour() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(20, 21) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -20,7 +20,7 @@ function getRandomColor() {
 }
 
 // yellow
-function getRandomColor() {
+function getRandomColour() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(50, 51) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -28,7 +28,7 @@ function getRandomColor() {
 }
 
 // green
-function getRandomColor() {
+function getRandomColour() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(150, 151) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -36,7 +36,7 @@ function getRandomColor() {
 }
 
 // cyan
-function getRandomColor() {
+function getRandomColour() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(190, 191) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -44,7 +44,7 @@ function getRandomColor() {
 }
 
 // blue
-function getRandomColor() {
+function getRandomColour() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(235, 236) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -53,14 +53,14 @@ function getRandomColor() {
 
 // jquery to change the colour of the background on keyups
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  $('body').css('background-color', getRandomColor());
+  $('body').css('background-color', getRandomColour());
 });
 
 // assign the two forms to a variable
 var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
 
-// function for blank, or to make blank, forms
+// var function for blank, or to make blank, forms
 var noTemp = function(){
   noCel = celsius.value = "";
   noFahr = fahrenheit.value = "";
@@ -75,7 +75,7 @@ celsius.onkeyup = function() {
     noTemp();
   }
 
-  if(isNaN(celsius.value)){
+  if(isNaN(celsius.value)){ //clears the forms when non-numbers are entered
     noTemp();
   }
 }
@@ -89,14 +89,14 @@ fahrenheit.onkeyup = function() {
     noTemp();
   }
 
-  if(isNaN(fahrenheit.value)){
+  if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
     noTemp();
   }
 }
 
 // *********** old colour randomizer **********************
 
-// function getRandomColor() {
+// function getRandomColour() {
 //   color = "hsl(" + Math.random() * 360 + ", 80%, 85%)";
 //   return color;
 // }
