@@ -21,12 +21,6 @@ function getRandomColor() {
 
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   $('body').css('background-color', getRandomColor());
-  // if($('#temp-celsius').val() = ""){
-  //   $('#temp-fahrenheit').val() = "";
-  // }
-  // if($('#temp-fahrenheit').val() = ""){
-  //   $('#temp-celsius').val() = "";
-  // }
 });
 
 var celsius = document.getElementById('temp-celsius'),
@@ -34,22 +28,6 @@ var celsius = document.getElementById('temp-celsius'),
     // noCel = celsius.value = "",
     // noFahr = fahrenheit.value = "",
     // noTemp = noCel, noFahr;
-
-// function noTemp() {
-//   var celVal = celsius.value,
-//       fahrVal = fahrenheit.value;
-
-//   if(celVal = ""){
-//     fahrVal = "";
-//   } else {
-//     fahrVal = fahrenheit.value;
-//     }
-//   }
-//   if(fahrVal = ""){
-//     celVal= "";
-//   } else {
-//     celVal = celsius.value;
-// };
 
 celsius.onkeyup = function() {
   if(celsius.value != ""){
