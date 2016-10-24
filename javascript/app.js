@@ -1,26 +1,10 @@
-// function getRandomInt(min, max) {
-//   return Math.floor(Math.random() * (max - min + 1)) + min;
-// }
-
-// setInterval(function() {
-//     var element = document.getElementById("box");
-//     //generate random red, green and blue intensity
-//     var r = getRandomInt(0, 255);
-//     var g = getRandomInt(0, 255);
-//     var b = getRandomInt(0, 255);
-    
-//     element.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-//     document.getElementById("colorvalue").innerHTML = r + " " + g + " " + b;
-// }, 1500);
-
-
 function getRandomColor() {
   color = "hsl(" + Math.random() * 360 + ", 100%, 85%)";
   return color;
 }
 
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  $('body').css('background-color', getRandomColor());
+  $('body').css('background-color', getRandomColor());g
 });
 
 var celsius = document.getElementById('temp-celsius'),
@@ -50,6 +34,21 @@ fahrenheit.onkeyup = function() {
   }
 }
 
+
+// color stuff
+// setInterval(function() {
+//     var element = document.getElementById("box");
+//     //generate random red, green and blue intensity
+//     var r = getRandomInt(0, 255);
+//     var g = getRandomInt(0, 255);
+//     var b = getRandomInt(0, 255);
+    
+//     element.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
+//     document.getElementById("colorvalue").innerHTML = r + " " + g + " " + b;
+// }, 1500);
+
+// *******************
+
 // var c = document.getElementById('temp-celsius').onkeyup = function(){
 //   convertTemp()
 // },
@@ -67,17 +66,7 @@ fahrenheit.onkeyup = function() {
 //  }
 // }
 
-// $(function() {
-//     $("#start").on('keyup', function() {
-//       $("#finish").val(celsiusToFarenheit($(this).val()));
-//     });
-//     $("#finish").on('keyup', function() {
-//       $("#start").val(fahrenheitToCelsius($(this).val()));
-//     });
-//   });
-
-
-
+// *******************
 
 
 // document.getElementById('celsius').onkeyup = updateFahrenheit;
