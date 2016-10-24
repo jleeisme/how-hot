@@ -1,7 +1,18 @@
-function getRandomColor() {
-  color = "hsl(" + Math.random() * 360 + ", 100%, 85%)";
-  return color;
+function randomVal(min, max) {
+  return Math.floor(Math.random() * (max - min) + 1) + min;
 }
+
+function getRandomColor() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(10, 11) + ', ' + randomVal(90, 95) + '%,  ' + randomVal(50, 80) + '%)';
+  }
+  return hsl;
+}
+
+// function getRandomColor() {
+//   color = "hsl(" + Math.random() * 360 + ", 80%, 85%)";
+//   return color;
+// }
 
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   $('body').css('background-color', getRandomColor());
@@ -43,38 +54,38 @@ fahrenheit.onkeyup = function() {
 
 
 // color stuff
-// setInterval(function() {
-//     var element = document.getElementById("box");
-//     //generate random red, green and blue intensity
-//     var r = getRandomInt(0, 255);
-//     var g = getRandomInt(0, 255);
-//     var b = getRandomInt(0, 255);
-    
-//     element.style.backgroundColor = "rgb(" + r + "," + g + "," + b + ")";
-//     document.getElementById("colorvalue").innerHTML = r + " " + g + " " + b;
-// }, 1500);
+// var elColors = document.getElementById('colors');
+// var genBtn = document.getElementById('generate_btn');
+// var colors = '';
 
-// *******************
-
-// var c = document.getElementById('temp-celsius').onkeyup = function(){
-//   convertTemp()
-// },
-//     f = document.getElementById('temp-fahrenheit').onkeyup = function(){
-//       convertTemp();
-//     };
-
-// function convertTemp() {
-//  if(c.value != '') {
-//   f.value = Math.round(c.value * 9 / 5 + 32);
-//   c.value = '';
-//  } else  {
-//   c.value = Math.round((f.value - 32) * 5 / 9);
-//   f.value = '';
-//  }
+// /* generates a value while allowing the customization of the minimum and maximum values*/
+// function randomVal(min, max) {
+//   return Math.floor(Math.random() * (max - min) + 1) + min;
 // }
 
-// *******************
+//  TO CUSTOMIZE 
 
+// In the generate() function below, change the numbers in randomVal(); min to max
+
+// EX to only generate colors from green to blue, change the first set to (120, 240)
+
+
+// function generate() {
+//   for (var i = 0; i < 5; i++) {
+//     var hsl = 'hsl(' + randomVal(0, 360) + ', ' + randomVal(30, 95) + '%,  ' + randomVal(30, 80) + '%)';
+//     colors += '<div class="\random-container\"><div class="\circle\"  style=\"border-bottom-color: ' + hsl + '\"></div> <p>' + hsl + '</p></div>';
+//     elColors.innerHTML = colors;
+//   }
+
+//   colors = '';
+
+// }
+
+// generate();
+
+// genBtn.addEventListener('click', generate);
+
+// *******************
 
 // document.getElementById('celsius').onkeyup = updateFahrenheit;
 
