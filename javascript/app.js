@@ -1,3 +1,9 @@
+// jquery to change the colour of the background on keyups
+$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function(e) {
+  if(e.keycode)
+  $('body').css('background-color', getRandomColour());
+});
+
 // allows for randomizing in the colour functions
 function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
@@ -51,10 +57,7 @@ function getRandomColour() {
   return hsl;
 }
 
-// jquery to change the colour of the background on keyups
-$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  $('body').css('background-color', getRandomColour());
-});
+
 
 // assign the two forms to a variable
 var celsius = document.getElementById('temp-celsius'),
