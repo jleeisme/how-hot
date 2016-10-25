@@ -59,9 +59,7 @@ function getRandomColour() {
 
 // assign the two forms to a variable
 var celsius = document.getElementById('temp-celsius'),
-    fahrenheit = document.getElementById('temp-fahrenheit'),
-    celVal = celsius.value,
-    fahrVal = fahrenheit.value;
+    fahrenheit = document.getElementById('temp-fahrenheit');
 
 // var function for blank, or to make blank, forms
 var noTemp = function(){
@@ -69,19 +67,27 @@ var noTemp = function(){
   noFahr = fahrenheit.value = "";
 }
 
-var keys = function() {
-  if((celVal == null, fahrVal == null) || (celVal == "", fahrVal == "") || (isNan(celVal, fahrVal)));
-  noCel = celsius.value = "";
-  noFahr = fahrenheit.value = "";
-}
+// var keys = function() {
+//   if((celVal == null, fahrVal == null) || (celVal == "", fahrVal == "") || (isNan(celVal, fahrVal)));
+//   noCel = celsius.value = "";
+//   noFahr = fahrenheit.value = "";
+// }
+
 // calculation to make celsius to fahrenheit as well as clearing the forms when blank
 celsius.onkeyup = function() {
-  if(celsius.value != "") {
-    fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
+  var celVal = document.getElementById('temp-celsius').value;
+  if((celVal == null) || (celVal == "") || (isNaN(celVal))){
+    fahrenheit.value = "";
   }
   else {
-    keys();
+    fahrenheit.value = Math.round(this.value * 9 / 5 + 32);
   }
+  // if(celsius.value != "") {
+  //   fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
+  // }
+  // else {
+  //   noTemp();
+  // }
 
   // if(isNaN(celsius.value)){ //clears the forms when non-numbers are entered
   //   noTemp();
@@ -89,18 +95,31 @@ celsius.onkeyup = function() {
 }
 
 // calculation to make fahrenheit to celsius as well as clearing the forms when blank
+
 fahrenheit.onkeyup = function() {
-  if(fahrenheit.value != "") {
+  var fahrVal = document.getElementById('temp-fahrenheit').value;
+  if((fahrVal == null) || (fahrVal == "") || (isNaN(fahrVal))) {
+    celsius.value = "";
+  }
+  else {
     celsius.value = Math.round((this.value - 32) * 5 / 9);
   }
-  else { 
-    keys();
-  }
-
-  // if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
-  //   noTemp();
-  // }
 }
+
+
+
+// fahrenheit.onkeyup = function() {
+//   if(fahrenheit.value != "") {
+//     celsius.value = Math.round((this.value - 32) * 5 / 9);
+//   }
+//   else { 
+//     noTemp();
+//   }
+
+//   // if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
+//   //   noTemp();
+//   // }
+// }
 
 // *********** old colour randomizer **********************
 
