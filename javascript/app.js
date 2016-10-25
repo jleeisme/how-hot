@@ -61,18 +61,6 @@ function getRandomColour() {
 var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
 
-// var function for blank, or to make blank, forms
-var noTemp = function(){
-  noCel = celsius.value = "";
-  noFahr = fahrenheit.value = "";
-}
-
-// var keys = function() {
-//   if((celVal == null, fahrVal == null) || (celVal == "", fahrVal == "") || (isNan(celVal, fahrVal)));
-//   noCel = celsius.value = "";
-//   noFahr = fahrenheit.value = "";
-// }
-
 // calculation to make celsius to fahrenheit as well as clearing the forms when blank
 celsius.onkeyup = function() {
   var celVal = document.getElementById('temp-celsius').value;
@@ -82,20 +70,9 @@ celsius.onkeyup = function() {
   else {
     fahrenheit.value = Math.round(this.value * 9 / 5 + 32);
   }
-  // if(celsius.value != "") {
-  //   fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
-  // }
-  // else {
-  //   noTemp();
-  // }
-
-  // if(isNaN(celsius.value)){ //clears the forms when non-numbers are entered
-  //   noTemp();
-  // }
 }
 
 // calculation to make fahrenheit to celsius as well as clearing the forms when blank
-
 fahrenheit.onkeyup = function() {
   var fahrVal = document.getElementById('temp-fahrenheit').value;
   if((fahrVal == null) || (fahrVal == "") || (isNaN(fahrVal))) {
@@ -107,6 +84,13 @@ fahrenheit.onkeyup = function() {
 }
 
 
+// ********** old form clearing ***********
+
+// var function for blank, or to make blank, forms
+// var noTemp = function(){
+//   noCel = celsius.value = "";
+//   noFahr = fahrenheit.value = "";
+// }
 
 // fahrenheit.onkeyup = function() {
 //   if(fahrenheit.value != "") {
