@@ -1,6 +1,6 @@
 // jquery to change the colour of the background on keyups
-$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function(e) {
-  if(e.keycode)
+$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
+  if(celsius.value)
   $('body').css('background-color', getRandomColour());
 });
 
@@ -57,11 +57,11 @@ function getRandomColour() {
   return hsl;
 }
 
-
-
 // assign the two forms to a variable
 var celsius = document.getElementById('temp-celsius'),
-    fahrenheit = document.getElementById('temp-fahrenheit');
+    fahrenheit = document.getElementById('temp-fahrenheit'),
+    celVal = celsius.value,
+    fahrVal = fahrenheit.value;
 
 // var function for blank, or to make blank, forms
 var noTemp = function(){
@@ -69,18 +69,23 @@ var noTemp = function(){
   noFahr = fahrenheit.value = "";
 }
 
+var keys = function() {
+  if((celVal == null, fahrVal == null) || (celVal == "", fahrVal == "") || (isNan(celVal, fahrVal)));
+  noCel = celsius.value = "";
+  noFahr = fahrenheit.value = "";
+}
 // calculation to make celsius to fahrenheit as well as clearing the forms when blank
 celsius.onkeyup = function() {
   if(celsius.value != "") {
     fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
   }
   else {
-    noTemp();
+    keys();
   }
 
-  if(isNaN(celsius.value)){ //clears the forms when non-numbers are entered
-    noTemp();
-  }
+  // if(isNaN(celsius.value)){ //clears the forms when non-numbers are entered
+  //   noTemp();
+  // }
 }
 
 // calculation to make fahrenheit to celsius as well as clearing the forms when blank
@@ -89,12 +94,12 @@ fahrenheit.onkeyup = function() {
     celsius.value = Math.round((this.value - 32) * 5 / 9);
   }
   else { 
-    noTemp();
+    keys();
   }
 
-  if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
-    noTemp();
-  }
+  // if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
+  //   noTemp();
+  // }
 }
 
 // *********** old colour randomizer **********************
