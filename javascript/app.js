@@ -3,7 +3,7 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   var celVal = celsius.value,
       fahrVal = fahrenheit.value;
 
-  if((-100 < celVal && celVal <= -20) || -148 < fahrVal && fahrVal <= -4) {
+  if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
     $('body').css('background-color', coldBlue());
   }
   if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
@@ -27,9 +27,9 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
     $('body').css('background-color', redHot());
   }
-  // else {
-  //   $('body').css('background-color', white());
-  // }
+  else {
+    $('body').css('background-color', white());
+  }
 });
 
 // allows for randomizing in the colour functions
