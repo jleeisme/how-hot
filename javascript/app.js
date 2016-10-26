@@ -3,8 +3,8 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   var celVal = celsius.value,
       fahrVal = fahrenheit.value;
 
-  if((celVal < -20) || fahrVal < -4) {
-    $('body').css('background-color', blue);
+  if((-100 < celVal && celVal <= -20) || -148 < fahrVal && fahrVal <= -4) {
+    $('body').css('background-color', coldBlue());
   }
   if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
     $('body').css('background-color', getRandomColourBlue());
@@ -24,6 +24,12 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
     $('body').css('background-color', getRandomColourRed());
   }
+  if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
+    $('body').css('background-color', redHot());
+  }
+  // else {
+  //   $('body').css('background-color', white());
+  // }
 });
 
 // allows for randomizing in the colour functions
@@ -75,6 +81,30 @@ function getRandomColourCyan() {
 function getRandomColourBlue() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(235, 236) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+  }
+  return hsl;
+}
+
+// cold blue 210, 90, 32
+function coldBlue() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(210, 210) + ', ' + randomVal(90, 91) + '%,  ' + randomVal(32, 33) + '%';
+  }
+  return hsl;
+}
+
+// red hot 0, 100, 40
+function redHot() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(0, 0) + ', ' + randomVal(99, 100) + '%,  ' + randomVal(40, 41) + '%';
+  }
+  return hsl;
+}
+
+// white...leaving it as a function as it can be easily altered if i feel like it
+function white() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(0, 0) + ', ' + randomVal(0, 0) + '%,  ' + randomVal(100, 100) + '%';
   }
   return hsl;
 }
