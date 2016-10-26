@@ -1,6 +1,6 @@
 // jquery to change the colour of the background on keyups
-$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function(e) {
-  if(e.keycode)
+$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
+  if(celsius.value)
   $('body').css('background-color', getRandomColour());
 });
 
@@ -57,45 +57,53 @@ function getRandomColour() {
   return hsl;
 }
 
-
-
 // assign the two forms to a variable
 var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
 
-// var function for blank, or to make blank, forms
-var noTemp = function(){
-  noCel = celsius.value = "";
-  noFahr = fahrenheit.value = "";
-}
-
 // calculation to make celsius to fahrenheit as well as clearing the forms when blank
 celsius.onkeyup = function() {
-  if(celsius.value != "") {
-    fahrenheit.value = Math.round(this.value * 9 / 5 + 32); 
+  var celVal = document.getElementById('temp-celsius').value;
+  if((celVal == null) || (celVal == "") || (isNaN(celVal))){
+    fahrenheit.value = "";
   }
   else {
-    noTemp();
-  }
-
-  if(isNaN(celsius.value)){ //clears the forms when non-numbers are entered
-    noTemp();
+    fahrenheit.value = Math.round(this.value * 9 / 5 + 32);
   }
 }
 
 // calculation to make fahrenheit to celsius as well as clearing the forms when blank
 fahrenheit.onkeyup = function() {
-  if(fahrenheit.value != "") {
+  var fahrVal = document.getElementById('temp-fahrenheit').value;
+  if((fahrVal == null) || (fahrVal == "") || (isNaN(fahrVal))) {
+    celsius.value = "";
+  }
+  else {
     celsius.value = Math.round((this.value - 32) * 5 / 9);
   }
-  else { 
-    noTemp();
-  }
-
-  if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
-    noTemp();
-  }
 }
+
+
+// ********** old form clearing ***********
+
+// var function for blank, or to make blank, forms
+// var noTemp = function(){
+//   noCel = celsius.value = "";
+//   noFahr = fahrenheit.value = "";
+// }
+
+// fahrenheit.onkeyup = function() {
+//   if(fahrenheit.value != "") {
+//     celsius.value = Math.round((this.value - 32) * 5 / 9);
+//   }
+//   else { 
+//     noTemp();
+//   }
+
+//   // if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
+//   //   noTemp();
+//   // }
+// }
 
 // *********** old colour randomizer **********************
 
