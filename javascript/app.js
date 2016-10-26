@@ -1,10 +1,28 @@
 // jquery to change the colour of the background on keyups
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  if((30 < celsius.value && celsius.value < 50) || 86 < fahrenheit.value && fahrenheit.value < 122) {
-    $('body').css('background-color', getRandomColourRed());
+  var celVal = celsius.value,
+      fahrVal = fahrenheit.value;
+
+  if((celVal < -20) || fahrVal < -4) {
+    $('body').css('background-color', blue);
   }
-  if((celsius < 0) || fahrenheit.value < 32) {
+  if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
     $('body').css('background-color', getRandomColourBlue());
+  }
+  if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
+    $('body').css('background-color', getRandomColourCyan()); 
+  }
+  if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
+    $('body').css('background-color', getRandomColourGreen());
+  }
+  if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
+    $('body').css('background-color', getRandomColourYellow());
+  }
+  if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
+    $('body').css('background-color', getRandomColourOrange());
+  }
+  if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
+    $('body').css('background-color', getRandomColourRed());
   }
 });
 
@@ -22,7 +40,7 @@ function getRandomColourRed() {
 }
 
 // orange
-function getRandomColour() {
+function getRandomColourOrange() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(20, 21) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -30,7 +48,7 @@ function getRandomColour() {
 }
 
 // yellow
-function getRandomColour() {
+function getRandomColourYellow() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(50, 51) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -38,7 +56,7 @@ function getRandomColour() {
 }
 
 // green
-function getRandomColour() {
+function getRandomColourGreen() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(150, 151) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
