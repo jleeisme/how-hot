@@ -1,38 +1,5 @@
-// jquery to change the colour of the background on keyups
-$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  var celVal = celsius.value,
-      fahrVal = fahrenheit.value;
-
-  if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
-    $('body').css('background-color', coldBlue());
-  }
-  if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
-    $('body').css('background-color', getRandomColourBlue());
-  }
-  if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
-    $('body').css('background-color', getRandomColourCyan()); 
-  }
-  if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
-    $('body').css('background-color', getRandomColourGreen());
-  }
-  if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
-    $('body').css('background-color', getRandomColourYellow());
-  }
-  if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
-    $('body').css('background-color', getRandomColourOrange());
-  }
-  if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
-    $('body').css('background-color', getRandomColourRed());
-  }
-  if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
-    $('body').css('background-color', redHot());
-  }
-  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
-    $('body').css('background-color', white());
-  }
-});
-
 // allows for randomizing in the colour functions
+// not randomizing colours atm, but leaving it in as I can always change my mind
 function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 }
@@ -101,7 +68,7 @@ function redHot() {
   return hsl;
 }
 
-// white...leaving it as a function as it can be easily altered if i feel like it
+// white
 function white() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(0, 0) + ', ' + randomVal(0, 0) + '%,  ' + randomVal(100, 100) + '%';
@@ -135,6 +102,54 @@ fahrenheit.onkeyup = function() {
   }
 }
 
+// jquery to change the colour of the background on keyups
+$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
+  var celVal = celsius.value,
+      fahrVal = fahrenheit.value;
+
+  if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
+    $('body').css('background-color', coldBlue());
+    $('body').css('color', white());
+  }
+
+  if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
+    $('body').css('background-color', getRandomColourBlue());
+    $('body').css('color', white());
+  }
+
+  if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
+    $('body').css('background-color', getRandomColourCyan()); 
+  }
+
+  if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
+    $('body').css('background-color', getRandomColourGreen());
+  }
+
+  if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
+    $('body').css('background-color', getRandomColourYellow());
+  }
+
+  if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
+    $('body').css('background-color', getRandomColourOrange());
+    $('body').css('color', white());
+  }
+
+  if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
+    $('body').css('background-color', getRandomColourRed());
+    $('body').css('color', white());
+  }
+
+  if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
+    $('body').css('background-color', redHot());
+    $('body').css('color', white());
+  }
+
+  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
+    $('body').css('background-color', white());
+    $('body').css('color', 'black');
+  }
+
+});
 
 // ********** old form clearing ***********
 
