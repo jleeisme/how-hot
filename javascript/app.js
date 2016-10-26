@@ -1,7 +1,11 @@
 // jquery to change the colour of the background on keyups
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  if(celsius.value)
-  $('body').css('background-color', getRandomColour());
+  if((30 < celsius.value && celsius.value < 50) || 86 < fahrenheit.value && fahrenheit.value < 122) {
+    $('body').css('background-color', getRandomColourRed());
+  }
+  if((celsius < 0) || fahrenheit.value < 32) {
+    $('body').css('background-color', getRandomColourBlue());
+  }
 });
 
 // allows for randomizing in the colour functions
@@ -10,7 +14,7 @@ function randomVal(min, max) {
 }
 
 // red
-function getRandomColour() {
+function getRandomColourRed() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(10, 11) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -42,7 +46,7 @@ function getRandomColour() {
 }
 
 // cyan
-function getRandomColour() {
+function getRandomColourCyan() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(190, 191) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
@@ -50,7 +54,7 @@ function getRandomColour() {
 }
 
 // blue
-function getRandomColour() {
+function getRandomColourBlue() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(235, 236) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
   }
