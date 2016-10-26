@@ -1,58 +1,77 @@
-// jquery to change the colour of the background on keyups
-$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  if(celsius.value)
-  $('body').css('background-color', getRandomColour());
-});
-
 // allows for randomizing in the colour functions
+// not randomizing colours atm, but leaving it in as I can always change my mind
 function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 }
 
-// red
-function getRandomColour() {
+// red 359, 100, 65...
+function getRandomColourRed() {
   for (var i = 0; i < 5; i++) {
-    var hsl = 'hsl(' + randomVal(10, 11) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+    var hsl = 'hsl(' + randomVal(359, 359) + ', ' + randomVal(100, 100) + '%,  ' + randomVal(65, 65) + '%)';
   }
   return hsl;
 }
 
-// orange
-function getRandomColour() {
+// orange 27, 97, 61
+function getRandomColourOrange() {
   for (var i = 0; i < 5; i++) {
-    var hsl = 'hsl(' + randomVal(20, 21) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+    var hsl = 'hsl(' + randomVal(27, 27) + ', ' + randomVal(97, 97) + '%,  ' + randomVal(61, 61) + '%)';
   }
   return hsl;
 }
 
-// yellow
-function getRandomColour() {
+// yellow 50, 94, 58
+function getRandomColourYellow() {
   for (var i = 0; i < 5; i++) {
-    var hsl = 'hsl(' + randomVal(50, 51) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+    var hsl = 'hsl(' + randomVal(50, 50) + ', ' + randomVal(94, 94) + '%,  ' + randomVal(58, 58) + '%)';
   }
   return hsl;
 }
 
-// green
-function getRandomColour() {
+// green 93, 55, 64
+function getRandomColourGreen() {
   for (var i = 0; i < 5; i++) {
-    var hsl = 'hsl(' + randomVal(150, 151) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+    var hsl = 'hsl(' + randomVal(93, 93) + ', ' + randomVal(55, 55) + '%,  ' + randomVal(64, 64) + '%)';
   }
   return hsl;
 }
 
-// cyan
-function getRandomColour() {
+// cyan 185, 61, 64
+function getRandomColourCyan() {
   for (var i = 0; i < 5; i++) {
-    var hsl = 'hsl(' + randomVal(190, 191) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+    var hsl = 'hsl(' + randomVal(185, 185) + ', ' + randomVal(61, 61) + '%,  ' + randomVal(64, 64) + '%)';
   }
   return hsl;
 }
 
-// blue
-function getRandomColour() {
+// blue 215, 51, 52
+function getRandomColourBlue() {
   for (var i = 0; i < 5; i++) {
-    var hsl = 'hsl(' + randomVal(235, 236) + ', ' + randomVal(80, 85) + '%,  ' + randomVal(60, 65) + '%)';
+    var hsl = 'hsl(' + randomVal(215, 215) + ', ' + randomVal(51, 51) + '%,  ' + randomVal(52, 52) + '%)';
+  }
+  return hsl;
+}
+
+// cold blue 210, 90, 32...215, 87, 39
+function coldBlue() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(215, 215) + ', ' + randomVal(87, 87) + '%,  ' + randomVal(39, 39) + '%';
+  }
+  return hsl;
+}
+
+// red hot 0, 100, 40...3, 76, 46
+function redHot() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(3, 3) + ', ' + randomVal(76, 76) + '%,  ' + randomVal(46, 46) + '%';
+  }
+  return hsl;
+}
+
+// white
+function white() {
+  for (var i = 0; i < 5; i++) {
+    var hsl = 'hsl(' + randomVal(0, 0) + ', ' + randomVal(0, 0) + '%,  ' + randomVal(100, 100) + '%';
   }
   return hsl;
 }
@@ -83,6 +102,54 @@ fahrenheit.onkeyup = function() {
   }
 }
 
+// jquery to change the colour of the background on keyups
+$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
+  var celVal = celsius.value,
+      fahrVal = fahrenheit.value;
+
+  if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
+    $('body').css('background-color', coldBlue());
+    $('body').css('color', white());
+  }
+
+  if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
+    $('body').css('background-color', getRandomColourBlue());
+    $('body').css('color', white());
+  }
+
+  if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
+    $('body').css('background-color', getRandomColourCyan()); 
+  }
+
+  if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
+    $('body').css('background-color', getRandomColourGreen());
+  }
+
+  if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
+    $('body').css('background-color', getRandomColourYellow());
+  }
+
+  if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
+    $('body').css('background-color', getRandomColourOrange());
+    $('body').css('color', white());
+  }
+
+  if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
+    $('body').css('background-color', getRandomColourRed());
+    $('body').css('color', white());
+  }
+
+  if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
+    $('body').css('background-color', redHot());
+    $('body').css('color', white());
+  }
+
+  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
+    $('body').css('background-color', white());
+    $('body').css('color', 'black');
+  }
+
+});
 
 // ********** old form clearing ***********
 

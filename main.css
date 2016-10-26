@@ -1,0 +1,13 @@
+html,
+body {
+  height: 100%;
+}
+
+body,
+input {
+  font-family: 'Open Sans', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
