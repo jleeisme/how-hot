@@ -83,7 +83,7 @@ var celsius = document.getElementById('temp-celsius'),
 // calculation to make celsius to fahrenheit as well as clearing the forms when blank
 celsius.onkeyup = function() {
   var celVal = document.getElementById('temp-celsius').value;
-  if((celVal == null) || (celVal == "") || (isNaN(celVal))){
+  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
     fahrenheit.value = "";
   }
   else {
@@ -102,79 +102,69 @@ fahrenheit.onkeyup = function() {
   }
 }
 
+// change text & border white on dark backgrounds
+var turnWhite = function() {
+  $('*').css('color', white());
+  $('input').css('border-color', white());
+}
+
+// change text & border black on dark backgrounds
+var turnBlack = function() {
+  $('*').css('color', '#000');
+  $('input').css('border-color', '#000');
+}
+
 // jquery to change the colour of the background on keyups
-$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  var celVal = celsius.value,
-      fahrVal = fahrenheit.value;
+// Probably could eventually create a function that can call upon the colours when a specific number range has been entered
+// Refactor can happen when it all functionsg
+$(document).ready(function() {
+  $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
+    var celVal = celsius.value,
+        fahrVal = fahrenheit.value;
 
-  if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
-    $('body').css('background-color', coldBlue());
-    $('body').css('color', white());
-  }
+    if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
+      $('body').css('background', coldBlue());
+      turnWhite();
+    }
 
-  if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
-    $('body').css('background-color', getRandomColourBlue());
-    $('body').css('color', white());
-  }
+    if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
+      $('body').css('background', getRandomColourBlue());
+      turnWhite();  
+    }
 
-  if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
-    $('body').css('background-color', getRandomColourCyan()); 
-  }
+    if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
+      $('body').css('background', getRandomColourCyan()); 
+    }
 
-  if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
-    $('body').css('background-color', getRandomColourGreen());
-  }
+    if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
+      $('body').css('background', getRandomColourGreen());
+    }
 
-  if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
-    $('body').css('background-color', getRandomColourYellow());
-  }
+    if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
+      $('body').css('background', getRandomColourYellow());
+    }
 
-  if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
-    $('body').css('background-color', getRandomColourOrange());
-    $('body').css('color', white());
-  }
+    if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
+      $('body').css('background', getRandomColourOrange());
+      turnWhite();
+    }
 
-  if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
-    $('body').css('background-color', getRandomColourRed());
-    $('body').css('color', white());
-  }
+    if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
+      $('body').css('background', getRandomColourRed());
+      turnWhite();
+    }
 
-  if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
-    $('body').css('background-color', redHot());
-    $('body').css('color', white());
-  }
+    if((40 < celVal) || 104 < fahrVal) {
+      $('body').css('background', redHot());
+      turnWhite();
+    }
 
-  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
-    $('body').css('background-color', white());
-    $('body').css('color', 'black');
-  }
-
+    if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
+      $('body')
+        .css({'background': 'linear-gradient(250deg, #00ffff, #ff4d4f)'})
+        .css({'background-size': '200% 200%'})
+        .css({'animation': 'background 10s linear infinite'});
+      turnBlack();
+    }
+  });
 });
-
-// ********** old form clearing ***********
-
-// var function for blank, or to make blank, forms
-// var noTemp = function(){
-//   noCel = celsius.value = "";
-//   noFahr = fahrenheit.value = "";
-// }
-
-// fahrenheit.onkeyup = function() {
-//   if(fahrenheit.value != "") {
-//     celsius.value = Math.round((this.value - 32) * 5 / 9);
-//   }
-//   else { 
-//     noTemp();
-//   }
-
-//   // if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
-//   //   noTemp();
-//   // }
-// }
-
-// *********** old colour randomizer **********************
-
-// function getRandomColour() {
-//   color = "hsl(" + Math.random() * 360 + ", 80%, 85%)";
-//   return color;
-// }
