@@ -170,6 +170,7 @@ $(document).ready(function() {
     }
 
     if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
+      $('body').css({'background': 'linear-gradient(225deg, #00ffff, #ff4d4f)'}).css({'background-size': '300% 300%'}).css({'animation': 'background 10s linear infinite'});
       // $('*').css('background', makeGrade());
       turnBlack();
     }
