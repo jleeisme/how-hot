@@ -114,10 +114,12 @@ var turnBlack = function() {
   $('input').css('border-color', '#000');
 }
 
-// var gradient = function() {
-//   var canvas = document.getElementById("body");
-//   var ctx = canvas.getContext("2d");
-//   var gradient = ctx.createLinearGradient(0,225,360,0);
+// function makeGrade() {
+//   var canvas = document.getElementById('whole-body'),
+//       ctx = canvas.getContext("2d"),
+//       gradient;
+
+//     gradient = ctx.createLinearGradient(0,225,360,0);
 //     gradient.addColorStop(0,"#ff4d4f");
 //     gradient.addColorStop(1,"#00ffff");
 //     ctx.fillStyle = gradient;
@@ -168,7 +170,7 @@ $(document).ready(function() {
     }
 
     if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
-      // $('body').css('background', white());
+      // $('*').css('background', makeGrade());
       turnBlack();
     }
 
