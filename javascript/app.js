@@ -102,11 +102,13 @@ fahrenheit.onkeyup = function() {
   }
 }
 
+// change text & border white on dark backgrounds
 var turnWhite = function() {
   $('*').css('color', white());
   $('input').css('border-color', white());
 }
 
+// change text & border black on dark backgrounds
 var turnBlack = function() {
   $('*').css('color', '#000');
   $('input').css('border-color', '#000');
@@ -129,7 +131,6 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
 
   if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
     $('body').css('background-color', getRandomColourCyan()); 
-    // turnBlack();
   }
 
   if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
