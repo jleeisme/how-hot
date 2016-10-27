@@ -161,7 +161,7 @@ $(document).ready(function() {
 
     if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
       $('body')
-        .css({'background': 'linear-gradient(230deg, #00ffff, #ff4d4f)'})
+        .css({'background': 'linear-gradient(250deg, #00ffff, #ff4d4f)'})
         .css({'background-size': '200% 200%'})
         .css({'animation': 'background 10s linear infinite'});
       turnBlack();
