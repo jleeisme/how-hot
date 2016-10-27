@@ -154,7 +154,7 @@ $(document).ready(function() {
       turnWhite();
     }
 
-    if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
+    if((40 < celVal) || 104 < fahrVal) {
       $('body').css('background', redHot());
       turnWhite();
     }
