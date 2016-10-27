@@ -116,7 +116,7 @@ var turnBlack = function() {
 
 // jquery to change the colour of the background on keyups
 // Probably could eventually create a function that can call upon the colours when a specific number range has been entered
-// Refactor can happen when it all functions
+// Refactor can happen when it all functionsg
 $(document).ready(function() {
   $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
     var celVal = celsius.value,
@@ -161,8 +161,8 @@ $(document).ready(function() {
 
     if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
       $('body')
-        .css({'background': 'linear-gradient(225deg, #00ffff, #ff4d4f)'})
-        .css({'background-size': '300% 300%'})
+        .css({'background': 'linear-gradient(230deg, #00ffff, #ff4d4f)'})
+        .css({'background-size': '200% 200%'})
         .css({'animation': 'background 10s linear infinite'});
       turnBlack();
     }
