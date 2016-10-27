@@ -114,79 +114,64 @@ var turnBlack = function() {
   $('input').css('border-color', '#000');
 }
 
+// var gradient = function() {
+//   var canvas = document.getElementById("body");
+//   var ctx = canvas.getContext("2d");
+//   var gradient = ctx.createLinearGradient(0,225,360,0);
+//     gradient.addColorStop(0,"#ff4d4f");
+//     gradient.addColorStop(1,"#00ffff");
+//     ctx.fillStyle = gradient;
+//     ctx.fillRect(10,10,200,100);
+// }
+
 // jquery to change the colour of the background on keyups
-$('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
-  var celVal = celsius.value,
-      fahrVal = fahrenheit.value;
+$(document).ready(function() {
+  $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
+    var celVal = celsius.value,
+        fahrVal = fahrenheit.value;
 
-  if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
-    $('body').css('background-color', coldBlue());
-    turnWhite();
-  }
+    if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
+      $('body').css('background', coldBlue());
+      turnWhite();
+    }
 
-  if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
-    $('body').css('background-color', getRandomColourBlue());
-    turnWhite();  
-  }
+    if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
+      $('body').css('background', getRandomColourBlue());
+      turnWhite();  
+    }
 
-  if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
-    $('body').css('background-color', getRandomColourCyan()); 
-  }
+    if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
+      $('body').css('background', getRandomColourCyan()); 
+    }
 
-  if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
-    $('body').css('background-color', getRandomColourGreen());
-  }
+    if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
+      $('body').css('background', getRandomColourGreen());
+    }
 
-  if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
-    $('body').css('background-color', getRandomColourYellow());
-  }
+    if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
+      $('body').css('background', getRandomColourYellow());
+    }
 
-  if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
-    $('body').css('background-color', getRandomColourOrange());
-    turnWhite();
-  }
+    if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
+      $('body').css('background', getRandomColourOrange());
+      turnWhite();
+    }
 
-  if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
-    $('body').css('background-color', getRandomColourRed());
-    turnWhite();
-  }
+    if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
+      $('body').css('background', getRandomColourRed());
+      turnWhite();
+    }
 
-  if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
-    $('body').css('background-color', redHot());
-    turnWhite();
-  }
+    if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
+      $('body').css('background', redHot());
+      turnWhite();
+    }
 
-  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
-    $('body').css('background-color', white());
-    turnBlack();
-  }
+    if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
+      // $('body').css('background', white());
+      turnBlack();
+    }
+
+  });
 
 });
-
-// ********** old form clearing ***********
-
-// var function for blank, or to make blank, forms
-// var noTemp = function(){
-//   noCel = celsius.value = "";
-//   noFahr = fahrenheit.value = "";
-// }
-
-// fahrenheit.onkeyup = function() {
-//   if(fahrenheit.value != "") {
-//     celsius.value = Math.round((this.value - 32) * 5 / 9);
-//   }
-//   else { 
-//     noTemp();
-//   }
-
-//   // if(isNaN(fahrenheit.value)){ //clears the forms when non-numbers are entered
-//   //   noTemp();
-//   // }
-// }
-
-// *********** old colour randomizer **********************
-
-// function getRandomColour() {
-//   color = "hsl(" + Math.random() * 360 + ", 80%, 85%)";
-//   return color;
-// }
