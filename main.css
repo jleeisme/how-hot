@@ -11,3 +11,29 @@ input {
 a {
   text-decoration: none;
 }
+
+#temp-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+input {
+  background: transparent;
+  border: none;
+  border-bottom: 1px solid black;
+}
+
+input:focus {
+  outline: none;
+}
+
+.light {
+  color: #000;
+}
+
+.dark {
+  color: #fff;
+}

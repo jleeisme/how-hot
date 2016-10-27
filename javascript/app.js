@@ -83,7 +83,7 @@ var celsius = document.getElementById('temp-celsius'),
 // calculation to make celsius to fahrenheit as well as clearing the forms when blank
 celsius.onkeyup = function() {
   var celVal = document.getElementById('temp-celsius').value;
-  if((celVal == null) || (celVal == "") || (isNaN(celVal))){
+  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
     fahrenheit.value = "";
   }
   else {
@@ -102,6 +102,16 @@ fahrenheit.onkeyup = function() {
   }
 }
 
+var turnWhite = function() {
+  $('*').css('color', white());
+  $('input').css('border-color', white());
+}
+
+var turnBlack = function() {
+  $('*').css('color', '#000');
+  $('input').css('border-color', '#000');
+}
+
 // jquery to change the colour of the background on keyups
 $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
   var celVal = celsius.value,
@@ -109,16 +119,17 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
 
   if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
     $('body').css('background-color', coldBlue());
-    $('body').css('color', white());
+    turnWhite();
   }
 
   if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
     $('body').css('background-color', getRandomColourBlue());
-    $('body').css('color', white());
+    turnWhite();  
   }
 
   if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
     $('body').css('background-color', getRandomColourCyan()); 
+    // turnBlack();
   }
 
   if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
@@ -131,22 +142,22 @@ $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
 
   if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
     $('body').css('background-color', getRandomColourOrange());
-    $('body').css('color', white());
+    turnWhite();
   }
 
   if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
     $('body').css('background-color', getRandomColourRed());
-    $('body').css('color', white());
+    turnWhite();
   }
 
   if((40 < celVal && celVal <= 100) || 104 < fahrVal && fahrVal <= 212) {
     $('body').css('background-color', redHot());
-    $('body').css('color', white());
+    turnWhite();
   }
 
   if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
     $('body').css('background-color', white());
-    $('body').css('color', 'black');
+    turnBlack();
   }
 
 });
