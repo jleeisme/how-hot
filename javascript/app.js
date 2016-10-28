@@ -30,7 +30,7 @@ var turnWhite = function() {
   $('input').css('border-color', white());
 }
 
-// change text & border black on dark backgrounds
+// change text & border black on light backgrounds
 var turnBlack = function() {
   $('*').css('color', '#000');
   $('input').css('border-color', '#000');
