@@ -37,7 +37,7 @@ var turnBlack = function() {
 }
 
 // jquery to change the colour of the background on keyups
-// Probably could eventually create a function that can call upon the colours when a specific number range has been entered
+// Probably could eventually maybe possibly create a function that can call upon the colours when a specific number range has been entered
 // Refactor can happen when it all functions like roses
 $(document).ready(function() {
   $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
