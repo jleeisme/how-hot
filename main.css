@@ -31,10 +31,11 @@ a {
   justify-content: center;
   align-items: center;
   position: fixed;
-  height: 90%;
+  height: 90%; 
   width: 100%;
 }
 
+/* changes the colour of the placeholder text. Looks gnarly as there is no standard for placeholders apparently. Way to go. */
 ::-webkit-input-placeholder {
   color: #e0daca;
 }
@@ -49,8 +50,6 @@ input {
   line-height: 40px;
   width: 300px;
   height: 60px;
-/*  margin-left: auto;
-  margin-right: auto;*/
 }
 
 input:focus {
@@ -69,6 +68,7 @@ b {
   color: #fff;
 }
 
+/* phones */
 @media only screen and (max-width: 500px) {
   input {
     width: 230px;
@@ -78,6 +78,7 @@ b {
   }
 }
 
+/* ipaddles */
 @media only screen 
   and (min-device-width: 768px) 
   and (max-device-width: 1024px) 
