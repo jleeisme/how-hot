@@ -68,3 +68,26 @@ b {
 .dark {
   color: #fff;
 }
+
+@media only screen and (max-width: 500px) {
+  input {
+    width: 230px;
+  }
+  #temp-div {
+    height: 100%;
+  }
+}
+
+@media only screen 
+  and (min-device-width: 768px) 
+  and (max-device-width: 1024px) 
+  and (-webkit-min-device-pixel-ratio: 2) {
+    input {
+      width: 350px;
+      padding: 25px 0;
+      padding-top: 30px;
+    }
+    #temp-div {
+      height: 100%;
+    }
+}
