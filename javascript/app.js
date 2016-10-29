@@ -3,7 +3,7 @@ var celsius = document.getElementById('temp-celsius'),
     fahrenheit = document.getElementById('temp-fahrenheit');
 
 // calculation to make celsius to fahrenheit as well as clearing the forms when blank
-celsius.onkeyup = function() {
+celsius.onkeyup = function(e) {
   var celVal = document.getElementById('temp-celsius').value;
   if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
     fahrenheit.value = "";
@@ -24,27 +24,32 @@ fahrenheit.onkeyup = function() {
   }
 }
 
-// change text & border white on dark backgrounds
-var turnWhite = function() {
-  $('*').css('color', white());
-  $('input').css('border-color', white());
-}
+$(function() {
+  // change text & border white on dark backgrounds
+  var turnWhite = function() {
+    $('*').css('color', white());
+    $('input').css('border-color', white());
+  }
 
-// change text & border black on light backgrounds
-var turnBlack = function() {
-  $('*').css('color', '#000');
-  $('input').css('border-color', '#000');
-}
+  // change text & border black on light backgrounds
+  var turnBlack = function() {
+    $('*').css('color', '#000');
+    $('input').css('border-color', '#000');
+  }
 
-// jquery to change the colour of the background on keyups
-// Probably could eventually maybe possibly create a function that can call upon the colours when a specific number range has been entered
-// Refactor can happen when it all functions like roses
-$(document).ready(function() {
-  $('#temp-celsius, #temp-fahrenheit').on('blur keyup', function() {
+  // jquery to change the colour of the background on keyups
+  // Probably could eventually maybe possibly create a function that can call upon the colours when a specific number range has been entered
+  // Refactor can happen when it all functions like roses
+  $('#temp-celsius, #temp-fahrenheit').on('keyup input', function(e) {
+    // e.stopPropagation();
     var celVal = celsius.value,
         fahrVal = fahrenheit.value;
 
-    if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
+    // if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
+    //   $('body').css('background', coldBlue());
+    //   turnWhite();
+    // }
+    if((celVal < -20) || fahrVal < -4) {
       $('body').css('background', coldBlue());
       turnWhite();
     }
