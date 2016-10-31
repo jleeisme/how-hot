@@ -1,31 +1,33 @@
-// assign the two forms to a variable
-var celsius = document.getElementById('temp-celsius'),
-    fahrenheit = document.getElementById('temp-fahrenheit');
-
-// calculation to make celsius to fahrenheit as well as clearing the forms when blank
-celsius.onkeyup = function(e) {
-  var celVal = document.getElementById('temp-celsius').value;
-  if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
-    fahrenheit.value = "";
-  }
-  else {
-    fahrenheit.value = Math.round(this.value * 9 / 5 + 32);
-  }
-}
-
-// calculation to make fahrenheit to celsius as well as clearing the forms when blank
-fahrenheit.onkeyup = function() {
-  var fahrVal = document.getElementById('temp-fahrenheit').value;
-  if((fahrVal == null) || (fahrVal == "") || (isNaN(fahrVal))) {
-    celsius.value = "";
-  }
-  else {
-    celsius.value = Math.round((this.value - 32) * 5 / 9);
-  }
-}
-
 $(function() {
-  // change text & border white on dark backgrounds
+// assign the two forms to a variable
+  var celsius = document.getElementById('temp-celsius'),
+      fahrenheit = document.getElementById('temp-fahrenheit');
+
+  // calculation to make celsius to fahrenheit as well as clearing the forms when blank
+  celsius.onkeyup = function(e) {
+    // e.preventDefault();
+    var celVal = document.getElementById('temp-celsius').value;
+    if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
+      fahrenheit.value = "";
+    }
+    else {
+      fahrenheit.value = Math.round(this.value * 9 / 5 + 32);
+    }
+  }
+
+  // calculation to make fahrenheit to celsius as well as clearing the forms when blank
+  fahrenheit.onkeyup = function() {
+    // e.preventDefault();
+    var fahrVal = document.getElementById('temp-fahrenheit').value;
+    if((fahrVal == null) || (fahrVal == "") || (isNaN(fahrVal))) {
+      celsius.value = "";
+    }
+    else {
+      celsius.value = Math.round((this.value - 32) * 5 / 9);
+    }
+  }
+
+// change text & border white on dark backgrounds
   var turnWhite = function() {
     $('*').css('color', white());
     $('input').css('border-color', white());
@@ -40,7 +42,7 @@ $(function() {
   // jquery to change the colour of the background on keyups
   // Probably could eventually maybe possibly create a function that can call upon the colours when a specific number range has been entered
   // Refactor can happen when it all functions like roses
-  $('#temp-celsius, #temp-fahrenheit').on('keyup input', function(e) {
+  $('#temp-celsius, #temp-fahrenheit').on('input change keyup', function(e) {
     // e.stopPropagation();
     var celVal = celsius.value,
         fahrVal = fahrenheit.value;
@@ -65,10 +67,12 @@ $(function() {
 
     if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
       $('body').css('background', getRandomColourGreen());
+      turnBlack();
     }
 
     if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
       $('body').css('background', getRandomColourYellow());
+      turnBlack();
     }
 
     if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
