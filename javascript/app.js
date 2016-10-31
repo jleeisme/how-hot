@@ -27,6 +27,7 @@ $(function() {
     }
   }
 
+
 // change text & border white on dark backgrounds
   var turnWhite = function() {
     $('*').css('color', white());
@@ -42,62 +43,64 @@ $(function() {
   // jquery to change the colour of the background on keyups
   // Probably could eventually maybe possibly create a function that can call upon the colours when a specific number range has been entered
   // Refactor can happen when it all functions like roses
-  $('#temp-celsius, #temp-fahrenheit').on('input change keyup', function(e) {
-    // e.stopPropagation();
-    var celVal = celsius.value,
-        fahrVal = fahrenheit.value;
+  if($(window).width() > 768){
+    $('#temp-celsius, #temp-fahrenheit').on('input change keyup focus', function(e) {
+      // e.stopPropagation();
+      var celVal = celsius.value,
+          fahrVal = fahrenheit.value;
 
-    // if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
-    //   $('body').css('background', coldBlue());
-    //   turnWhite();
-    // }
-    if((celVal < -20) || fahrVal < -4) {
-      $('body').css('background', coldBlue());
-      turnWhite();
-    }
+      // if((-100 <= celVal && celVal <= -20) || -148 <= fahrVal && fahrVal <= -4) {
+      //   $('body').css('background', coldBlue());
+      //   turnWhite();
+      // }
+      if((celVal < -20) || fahrVal < -4) {
+        $('body').css('background', coldBlue());
+        turnWhite();
+      }
 
-    if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
-      $('body').css('background', getRandomColourBlue());
-      turnWhite();  
-    }
+      if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
+        $('body').css('background', getBlue());
+        turnWhite();  
+      }
 
-    if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
-      $('body').css('background', getRandomColourCyan()); 
-    }
+      if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
+        $('body').css('background', getCyan()); 
+      }
 
-    if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
-      $('body').css('background', getRandomColourGreen());
-      turnBlack();
-    }
+      if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
+        $('body').css('background', getGreen());
+        turnBlack();
+      }
 
-    if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
-      $('body').css('background', getRandomColourYellow());
-      turnBlack();
-    }
+      if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
+        $('body').css('background', getYellow());
+        turnBlack();
+      }
 
-    if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
-      $('body').css('background', getRandomColourOrange());
-      turnWhite();
-    }
+      if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
+        $('body').css('background', getOrange());
+        turnWhite();
+      }
 
-    if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
-      $('body').css('background', getRandomColourRed());
-      turnWhite();
-    }
+      if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
+        $('body').css('background', getRed());
+        turnWhite();
+      }
 
-    if((40 < celVal) || 104 < fahrVal) {
-      $('body').css('background', redHot());
-      turnWhite();
-    }
+      if((40 < celVal) || 104 < fahrVal) {
+        $('body').css('background', redHot());
+        turnWhite();
+      }
 
-    // replicates the css body background colour gradient...how many commas should be inserted in that?
-    // Tempted to make all of the colours gradients cause they're much prettier. Pretty is everything
-    if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
-      $('body')
-        .css({'background': 'linear-gradient(250deg, #00ffff, #ff4d4f)'})
-        .css({'background-size': '200% 200%'})
-        // .css({'animation': 'background 10s linear infinite'});
-      turnBlack();
-    }
-  });
+      // replicates the css body background colour gradient...how many commas should be inserted in that?
+      // Tempted to make all of the colours gradients cause they're much prettier. Pretty is everything
+      if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
+        $('body')
+          .css({'background': 'linear-gradient(250deg, #00ffff, #ff4d4f)'})
+          .css({'background-size': '200% 200%'})
+          // .css({'animation': 'background 10s linear infinite'});
+        turnBlack();
+      }
+    });
+  }
 });

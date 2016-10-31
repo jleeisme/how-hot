@@ -6,7 +6,7 @@ function randomVal(min, max) {
 }
 
 // red 359, 100, 65...
-function getRandomColourRed() {
+function getRed() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(359, 359) + ', ' + randomVal(100, 100) + '%,  ' + randomVal(65, 65) + '%)';
   }
@@ -14,7 +14,7 @@ function getRandomColourRed() {
 }
 
 // orange 27, 97, 61
-function getRandomColourOrange() {
+function getOrange() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(27, 27) + ', ' + randomVal(97, 97) + '%,  ' + randomVal(61, 61) + '%)';
   }
@@ -22,7 +22,7 @@ function getRandomColourOrange() {
 }
 
 // yellow 50, 94, 58
-function getRandomColourYellow() {
+function getYellow() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(50, 50) + ', ' + randomVal(94, 94) + '%,  ' + randomVal(58, 58) + '%)';
   }
@@ -30,7 +30,7 @@ function getRandomColourYellow() {
 }
 
 // green 93, 55, 64
-function getRandomColourGreen() {
+function getGreen() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(93, 93) + ', ' + randomVal(55, 55) + '%,  ' + randomVal(64, 64) + '%)';
   }
@@ -38,7 +38,7 @@ function getRandomColourGreen() {
 }
 
 // cyan 185, 61, 64
-function getRandomColourCyan() {
+function getCyan() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(185, 185) + ', ' + randomVal(61, 61) + '%,  ' + randomVal(64, 64) + '%)';
   }
@@ -46,7 +46,7 @@ function getRandomColourCyan() {
 }
 
 // blue 215, 51, 52
-function getRandomColourBlue() {
+function getBlue() {
   for (var i = 0; i < 5; i++) {
     var hsl = 'hsl(' + randomVal(215, 215) + ', ' + randomVal(51, 51) + '%,  ' + randomVal(52, 52) + '%)';
   }
