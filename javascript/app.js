@@ -58,7 +58,7 @@ $(function() {
         turnWhite();
       }
 
-      if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
+      if((-20 <= celVal && celVal <= -10) || -4 <= fahrVal && fahrVal <= 14) {
         $('body').css('background', getBlue());
         turnWhite();  
       }
