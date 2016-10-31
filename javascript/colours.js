@@ -1,6 +1,5 @@
 // allows for randomizing in the colour functions
 // obvs there's more straight forward ways of getting a singular colour, but I initially thought of having a lot of variations.
-// not randomizing colours atm, but leaving it in as I can always change my mind
 function randomVal(min, max) {
   return Math.floor(Math.random() * (max - min) + 1) + min;
 }
