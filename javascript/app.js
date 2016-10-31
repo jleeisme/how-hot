@@ -27,6 +27,7 @@ $(function() {
     }
   }
 
+
 // change text & border white on dark backgrounds
   var turnWhite = function() {
     $('*').css('color', white());
@@ -42,7 +43,7 @@ $(function() {
   // jquery to change the colour of the background on keyups
   // Probably could eventually maybe possibly create a function that can call upon the colours when a specific number range has been entered
   // Refactor can happen when it all functions like roses
-  $('#temp-celsius, #temp-fahrenheit').on('input change keyup', function(e) {
+  $('#temp-celsius, #temp-fahrenheit').on('input change keyup focus', function(e) {
     // e.stopPropagation();
     var celVal = celsius.value,
         fahrVal = fahrenheit.value;
@@ -57,31 +58,31 @@ $(function() {
     }
 
     if((-20 < celVal && celVal <= -10) || -4 < fahrVal && fahrVal <= 14) {
-      $('body').css('background', getRandomColourBlue());
+      $('body').css('background', getBlue());
       turnWhite();  
     }
 
     if((-10 < celVal && celVal <= 0) || 14 < fahrVal && fahrVal <= 32) {
-      $('body').css('background', getRandomColourCyan()); 
+      $('body').css('background', getCyan()); 
     }
 
     if((0 < celVal && celVal <= 10) || 32 < fahrVal && fahrVal <= 50) {
-      $('body').css('background', getRandomColourGreen());
+      $('body').css('background', getGreen());
       turnBlack();
     }
 
     if((10 < celVal && celVal <= 20) || 50 < fahrVal && fahrVal <= 68) {
-      $('body').css('background', getRandomColourYellow());
+      $('body').css('background', getYellow());
       turnBlack();
     }
 
     if((20 < celVal && celVal <= 30) || 68 < fahrVal && fahrVal <= 86) {
-      $('body').css('background', getRandomColourOrange());
+      $('body').css('background', getOrange());
       turnWhite();
     }
 
     if((30 < celVal && celVal <= 40) || 86 < fahrVal && fahrVal <= 104) {
-      $('body').css('background', getRandomColourRed());
+      $('body').css('background', getRed());
       turnWhite();
     }
 
