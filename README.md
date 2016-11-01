@@ -4,4 +4,4 @@ Enter a temperature and the converted temperature will be displayed for the othe
 
 The colour will also change depending on the temperature given.
 
-[how-hottt](https://jleeisme.github.io/how-hot/)
+[how-hottt](https://jleeisme.github.io/how-hottt/)
