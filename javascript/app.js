@@ -25,7 +25,7 @@ $(function() {
     }
   }
 
-  if($(window).width() > 768){
+  if($(window).width() > 769){
     // change text & border white on dark backgrounds
     var turnWhite = function() {
       $('*').css('color', white());
