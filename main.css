@@ -15,14 +15,18 @@ body {
   overflow: hidden;
 }
 
-.home-link {
+/*.home-link {
   top: 20px;
   left: 20px;
-}
+}*/
 
 a {
+  position: relative;
   text-decoration: none;
   color: black;
+  top: 20px;
+  left: 20px;
+  font-size: 25px;
 }
 
 #temp-div {
@@ -75,6 +79,9 @@ b {
   }
   #temp-div {
     height: 100%;
+  }
+  b {
+    font-weight: normal;
   }
 }
 
