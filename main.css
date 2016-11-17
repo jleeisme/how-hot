@@ -27,6 +27,7 @@ a {
   top: 20px;
   left: 20px;
   font-size: 25px;
+  z-index: 99;
 }
 
 #temp-div {
