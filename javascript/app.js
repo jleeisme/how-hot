@@ -1,11 +1,13 @@
 $(function() {
 // assign the two forms to a variable
-  var celsius = document.getElementById('temp-celsius'),
-      fahrenheit = document.getElementById('temp-fahrenheit');
+  const celsius = document.getElementById('temp-celsius'),
+        fahrenheit = document.getElementById('temp-fahrenheit');
 
   // calculation to make celsius to fahrenheit as well as clearing the forms when blank
-  celsius.onkeyup = function() {
-    var celVal = document.getElementById('temp-celsius').value;
+  celsius.onkeyup = function() { // arrow function not working here... haven't resolved why
+
+    const celVal = document.getElementById('temp-celsius').value;
+
     if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
       fahrenheit.value = "";
     }
@@ -16,7 +18,8 @@ $(function() {
 
   // calculation to make fahrenheit to celsius as well as clearing the forms when blank
   fahrenheit.onkeyup = function() {
-    var fahrVal = document.getElementById('temp-fahrenheit').value;
+    const fahrVal = document.getElementById('temp-fahrenheit').value;
+
     if((fahrVal == null) || (fahrVal == "") || (isNaN(fahrVal))) {
       celsius.value = "";
     }
@@ -27,13 +30,13 @@ $(function() {
 
   if($(window).width() > 769){
     // change text & border white on dark backgrounds
-    var turnWhite = function() {
+    const turnWhite = () => {
       $('*').css('color', white());
       $('input').css('border-color', white());
     }
 
     // change text & border black on light backgrounds
-    var turnBlack = function() {
+    const turnBlack = () => {
       $('*').css('color', '#000');
       $('input').css('border-color', '#000');
     }
@@ -41,10 +44,10 @@ $(function() {
     // change the colour of the background on keyups
     // Probably could eventually maybe possibly create a function that can call upon the colours when a specific number range has been entered
     // Refactor can happen when it all functions like roses
-    $('#temp-celsius, #temp-fahrenheit').on('input change keyup focus', function(e) {
+    $('#temp-celsius, #temp-fahrenheit').on('input change keyup focus', e => {
       
-      var celVal = celsius.value,
-          fahrVal = fahrenheit.value;
+      const celVal = celsius.value,
+            fahrVal = fahrenheit.value;
 
       if((celVal < -20) || fahrVal < -4) {
         $('body').css('background', coldBlue());
