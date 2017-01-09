@@ -4,8 +4,8 @@ $(function() {
         fahrenheit = document.getElementById('temp-fahrenheit');
 
   // calculation to make celsius to fahrenheit as well as clearing the forms when blank
-  celsius.onkeyup = function() { // arrow function not working here... haven't resolved why
-
+  celsius.onkeyup = function() { // arrow functions don't work on event handlers such as here
+    // where 'this' refers to the window, the whole document, and not the element
     const celVal = document.getElementById('temp-celsius').value;
 
     if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
@@ -14,6 +14,7 @@ $(function() {
     else {
       fahrenheit.value = Math.round(this.value * 9 / 5 + 32);
     }
+    // console.log(this);
   }
 
   // calculation to make fahrenheit to celsius as well as clearing the forms when blank
