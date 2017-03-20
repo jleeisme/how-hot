@@ -10,11 +10,9 @@ $(function() {
 
     if((celVal == null) || (celVal == "") || (isNaN(celVal))) {
       fahrenheit.value = "";
-    }
-    else {
+    } else {
       fahrenheit.value = Math.round(this.value * 9 / 5 + 32);
     }
-    // console.log(this);
   }
 
   // calculation to make fahrenheit to celsius as well as clearing the forms when blank
@@ -23,21 +21,20 @@ $(function() {
 
     if((fahrVal == null) || (fahrVal == "") || (isNaN(fahrVal))) {
       celsius.value = "";
-    }
-    else {
+    } else {
       celsius.value = Math.round((this.value - 32) * 5 / 9);
     }
   }
 
   if($(window).width() > 769){
     // change text & border white on dark backgrounds
-    const turnWhite = () => {
+    let turnWhite = () => {
       $('*').css('color', white());
       $('input').css('border-color', white());
     }
 
     // change text & border black on light backgrounds
-    const turnBlack = () => {
+    let turnBlack = () => {
       $('*').css('color', '#000');
       $('input').css('border-color', '#000');
     }
